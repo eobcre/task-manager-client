@@ -50,7 +50,7 @@ const Tasks = () => {
     } else if (activeTab === 'Assigned') {
       fetchAssignedTaskData();
     }
-  });
+  }, [activeTab]);
 
   // assign task button
   const handleClickAssignTask = () => {
