@@ -34,7 +34,7 @@ const Login = () => {
 
     try {
       const serverClient = new ServerClient('/api/login');
-      const res = await serverClient.post({ name, passcode,  });
+      const res = await serverClient.post({ name, passcode });
       console.log('res', res.data);
       setUserLogin(true);
       setUserId(res.data.userId);
