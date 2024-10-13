@@ -14,13 +14,6 @@ export const navData: NavItemProps[] = [
     iconName: 'ic:twotone-task-alt',
     nav: 'Tasks',
     link: '/Tasks',
-    style: 'text-white w-[32px] h-[32px]'
-  },
-  {
-    id: nanoid(),
-    iconName: 'proicons:settings',
-    nav: 'Settings',
-    link: '/Settings',
-    style: 'text-white w-[32px] h-[32px]'
+    style: 'text-white w-[32px] h-[32px]',
   },
 ];
