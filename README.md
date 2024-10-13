@@ -2,7 +2,9 @@
 
 # Task Management
 
-### FRONTEND
+This repository is the client side code integrated with <a href="https://github.com/eobcre/task-manager-server-AWS" target='_blank'
+rel='noopener noreferrer'>task-manager-server-AWS</a> repository.
+
 - React
 - Vite
 - TypeScript
@@ -12,10 +14,3 @@
 - @iconify/react
 - react-select
 - AWS CloudFront, S3
-
-### BACKEND
-- Node.js (Express.js)
-- Mongo DB
-- Supabase
-- REST API
-- AWS EC2
