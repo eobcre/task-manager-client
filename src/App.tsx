@@ -4,7 +4,6 @@ import useLoginStore from './store/useLoginStore';
 import Login from './pages/Login/Login';
 import Nav from './components/Nav';
 import Tasks from './pages/Tasks';
-import Settings from './pages/Settings';
 
 const App = () => {
   const { isNavOpen } = useStore();
@@ -21,7 +20,6 @@ const App = () => {
             <>
               <Route path='*' element={<Navigate to='/Tasks' />} />
               <Route path='/Tasks' element={<Tasks />} />
-              <Route path='/Settings' element={<Settings />} />
             </>
           )}
         </Routes>
