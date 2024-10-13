@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface TabProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;

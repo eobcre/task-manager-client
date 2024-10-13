@@ -26,7 +26,7 @@ const Tasks = () => {
     try {
       const serverClient = new ServerClient('/api/retrieveTasks');
       const res = await serverClient.post({ userId });
-      console.log('res', res.data);
+      // console.log('res', res.data);
       setTaskData(res.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -37,7 +37,7 @@ const Tasks = () => {
     try {
       const serverClient = new ServerClient('/api/retrieveAssignedTasks');
       const res = await serverClient.post({ userId });
-      console.log('fetchAssignedTaskData res', res.data);
+      // console.log('fetchAssignedTaskData res', res.data);
       setAssignedTaskData(res.data);
     } catch (error) {
       console.error('Error fetching assigned task data:', error);
@@ -113,6 +113,7 @@ const Tasks = () => {
           description={description}
           selectedDocumentType={selectedDocumentType}
           setSelectedAssignee={setSelectedAssignee}
+          setAssignTaskOpen={setAssignTaskOpen}
           handleChangeTask={handleChangeTask}
           handleChangeDocumentType={handleChangeDocumentType}
           handleChangeDesc={handleChangeDesc}

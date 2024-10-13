@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ServerClient from '../services/ServerClient';
+import { Icon } from '@iconify/react';
 import Select from 'react-select';
 import useLoginStore from '../store/useLoginStore';
 import { assignTaskData, assignDocumentTypeData } from '../data/assignTaskData';
@@ -16,6 +17,7 @@ interface AssignTaskProps {
   selectedDocumentType: string;
   description: string;
   setSelectedAssignee: (assignee: Assignee | null) => void;
+  setAssignTaskOpen: (state: boolean) => void;
   handleChangeTask: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangeDocumentType: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangeDesc: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -32,6 +34,7 @@ const AssignTask: React.FC<AssignTaskProps> = ({
   description,
   selectedDocumentType,
   setSelectedAssignee,
+  setAssignTaskOpen,
   handleChangeTask,
   handleChangeDocumentType,
   handleChangeDesc,
@@ -63,11 +66,14 @@ const AssignTask: React.FC<AssignTaskProps> = ({
   return (
     <div className='flex items-center justify-centermin-h-screen'>
       <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
-        <div className='flex flex-col bg-lightGray rounded-lg shadow-lg p-10 w-[600px] h-auto'>
+        <div className='flex flex-col bg-lightGray rounded-lg shadow-lg px-10 pt-6 pb-10 w-[600px] h-auto'>
+          <div className='flex justify-end'>
+            <Icon icon='material-symbols:close' width='16' height='16' className='text-dark text-right hover:opacity-70 cursor-pointer w-[30px] h-[30px]' onClick={() => setAssignTaskOpen(false)} />
+          </div>
           <h1 className='text-lg font-bold border-b border-gray-300 pb-1'>Task Assignment</h1>
           {/* task selection */}
           <div className='py-4'>
-            <h3 className='text-md py-3'>Select the task that you want to assign to your team member</h3>
+            <h3 className='text-md py-3'>Select the task type</h3>
             <div className='flex gap-6'>
               {assignTaskData.map((task, index) => (
                 <div key={task.id} className='flex items-center gap-2'>
