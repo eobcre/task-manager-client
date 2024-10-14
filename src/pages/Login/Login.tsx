@@ -35,7 +35,7 @@ const Login = () => {
     try {
       const serverClient = new ServerClient('/api/login');
       const res = await serverClient.post({ name, passcode });
-      console.log('res', res.data);
+      // console.log('res', res.data);
       setUserLogin(true);
       setUserId(res.data.userId);
       setUserName(res.data.name);
@@ -69,7 +69,7 @@ const Login = () => {
               </fieldset>
             ))}
           </div>
-          <div className='flex flex-col gap-4 mt-7 w-[440px]'>
+          <div className='flex flex-col gap-4 w-[440px]'>
             <p className='text-red-500 text-right'>{invalidLogin}</p>
             <div>
               <input type='text' placeholder='username' className='border border-slate-400 rounded-sm p-2 w-full' value={name} onChange={handleChangeUserName} />
