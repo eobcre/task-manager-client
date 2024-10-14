@@ -64,7 +64,7 @@ const AssignTask: React.FC<AssignTaskProps> = ({
     }));
 
   return (
-    <div className='flex items-center justify-centermin-h-screen'>
+    <div className='flex items-center justify-center min-h-screen'>
       <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
         <div className='flex flex-col bg-lightGray rounded-lg shadow-lg px-10 pt-6 pb-10 w-[600px] h-auto'>
           <div className='flex justify-end'>

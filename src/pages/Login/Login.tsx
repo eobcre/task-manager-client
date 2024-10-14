@@ -46,12 +46,12 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Login failed:', error);
-      alert('Invalid credentials');
+      setInvalidLogin('Invalid Credentials')
     }
   };
 
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='flex justify-center items-center transform scale-90 h-screen'>
       <div className='w-[440px]'>
         <div className='flex flex-col items-center gap-6'>
           <Icon icon='fluent-emoji-high-contrast:raccoon' className='home-icon text-purple w-[60px] h-[60px]' />
