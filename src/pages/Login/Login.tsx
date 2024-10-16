@@ -52,11 +52,11 @@ const Login = () => {
 
   return (
     <div className='flex justify-center items-center transform scale-90 h-screen'>
-      <div className='w-[440px]'>
+      <div className='w-[340px] md:w-[440px]'>
         <div className='flex flex-col items-center gap-6'>
           <Icon icon='fluent-emoji-high-contrast:raccoon' className='home-icon text-purple w-[60px] h-[60px]' />
           <p>Log in with the username and passcode below and assign the task to another user.</p>
-          <div className='flex justify-center items-center gap-7'>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-7'>
             {loginData.map((login) => (
               <fieldset key={login.id} className='border-2 border-gray-300 p-4 rounded'>
                 <legend className='text-lg font-semibold px-2'>{login.accountName}</legend>
@@ -69,7 +69,7 @@ const Login = () => {
               </fieldset>
             ))}
           </div>
-          <div className='flex flex-col gap-4 w-[440px]'>
+          <div className='flex flex-col gap-4 w-full md:w-[440px]'>
             <p className='text-red-500 text-right'>{invalidLogin}</p>
             <div>
               <input type='text' placeholder='username' className='border border-slate-400 rounded-sm p-2 w-full' value={name} onChange={handleChangeUserName} />
