@@ -25,7 +25,7 @@ const Tasks = () => {
   const fetchTaskData = async () => {
     try {
       const serverClient = new ServerClient('/api/retrieveTasks');
-      const res = await serverClient.post({ userId: userId });
+      const res = await serverClient.post({ userId: userId ?? '' });
       // console.log('res', res.data);
       setTaskData(res.data);
     } catch (error) {
@@ -36,7 +36,7 @@ const Tasks = () => {
   const fetchAssignedTaskData = async () => {
     try {
       const serverClient = new ServerClient('/api/retrieveAssignedTasks');
-      const res = await serverClient.post({ userId });
+      const res = await serverClient.post({ userId: userId ?? '' });
       // console.log('fetchAssignedTaskData res', res.data);
       setAssignedTaskData(res.data);
     } catch (error) {
@@ -61,7 +61,15 @@ const Tasks = () => {
   const onSubmit = async () => {
     try {
       const serverClient = new ServerClient('/api/assignTasks');
-      await serverClient.post({ userId, userName, taskName: selectedTask, documentType: selectedDocumentType, assignTo: selectedAssignee, description, flag });
+      await serverClient.post({
+        userId: userId ?? '',
+        userName: userName ?? '',
+        taskName: selectedTask,
+        documentType: selectedDocumentType,
+        assignTo: selectedAssignee ? selectedAssignee.userId : '',
+        description,
+        flag: flag ? 1 : 0,
+      });
       // console.log('res', res.data);
       if (activeTab === 'My Tasks') {
         fetchTaskData();
