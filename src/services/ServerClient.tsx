@@ -6,7 +6,7 @@ const axiosClient = axios.create({
 });
 
 interface getParams {
-  [key: string]: string | number;
+  [key: string]: string | number | null;
 }
 
 class ServerClient {
