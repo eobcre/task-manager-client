@@ -66,17 +66,17 @@ const AssignTask: React.FC<AssignTaskProps> = ({
   return (
     <div className='flex items-center justify-center min-h-screen'>
       <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
-        <div className='flex flex-col bg-lightGray rounded-lg shadow-lg px-10 pt-6 pb-10 w-[600px] h-auto'>
+        <div className='flex flex-col bg-lightGray rounded-lg shadow-lg mx-4 md:mx-0 px-6 md:px-10 pt-6 pb-10 w-full md:w-[600px] h-auto'>
           <div className='flex justify-end'>
             <Icon icon='material-symbols:close' width='16' height='16' className='text-dark text-right hover:opacity-70 cursor-pointer w-[30px] h-[30px]' onClick={() => setAssignTaskOpen(false)} />
           </div>
           <h1 className='text-lg font-bold border-b border-gray-300 pb-1'>Task Assignment</h1>
           {/* task selection */}
           <div className='py-4'>
-            <h3 className='text-md py-3'>Select the task type</h3>
-            <div className='flex gap-6'>
+            <h3 className='py-3'>Select the task type</h3>
+            <div className='flex gap-2 md:gap-6'>
               {assignTaskData.map((task, index) => (
-                <div key={task.id} className='flex items-center gap-2'>
+                <div key={task.id} className='flex items-center gap-2 text-[0.9rem] md:text-md'>
                   <input id={`task-${index}`} type='radio' checked={selectedTask === task.taskName} value={task.taskName} onChange={handleChangeTask} />
                   <label htmlFor={`task-${index}`}>{task.taskName}</label>
                 </div>
@@ -85,10 +85,10 @@ const AssignTask: React.FC<AssignTaskProps> = ({
           </div>
           {/* document type selection */}
           <div className='py-4'>
-            <h3 className='text-md py-3'>Select the document type</h3>
-            <div className='flex gap-6'>
+            <h3 className='py-3'>Select the document type</h3>
+            <div className='flex gap-2 md:gap-6'>
               {assignDocumentTypeData.map((type, index) => (
-                <div key={type.id} className='flex items-center gap-2'>
+                <div key={type.id} className='flex items-center gap-2 text-[0.9rem] md:text-md'>
                   <input id={`document-${index}`} type='radio' checked={selectedDocumentType === type.documentType} value={type.documentType} onChange={handleChangeDocumentType} />
                   <label htmlFor={`document-${index}`}>{type.documentType}</label>
                 </div>
