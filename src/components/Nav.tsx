@@ -29,7 +29,7 @@ const Nav = () => {
   };
 
   return (
-    <div className={`nav-container sticky top-0 bg-purple duration-500 h-screen ${isNavOpen ? 'w-80' : 'w-20'}`} onClick={handleClickNavOpen}>
+    <div className={`hidden md:block nav-container sticky top-0 bg-purple duration-500 h-screen ${isNavOpen ? 'w-80' : 'w-20'}`} onClick={handleClickNavOpen}>
       <div className='flex flex-col justify-between h-full py-6'>
         <nav className='flex flex-col gap-10'>
           <Icon icon='fluent-emoji-high-contrast:raccoon' className='text-white ml-4 w-[40px] h-[40px]' />
