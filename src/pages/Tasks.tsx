@@ -96,9 +96,9 @@ const Tasks = () => {
   };
 
   return (
-    <div className='p-14'>
+    <div className='p-6 md:p-14 min-h-screen'>
       <div>
-        <div className='flex justify-between items-center'>
+        <div className='flex flex-col md:flex-row justify-between items-start md:items-center'>
           <h1 className='text-4xl font-medium py-4'>Tasks Management</h1>
           <Button buttonName='Assign Task' buttonStyle='text-white bg-purple hover:opacity-90 rounded-md px-6 py-2' buttonClick={handleClickAssignTask} />
         </div>
