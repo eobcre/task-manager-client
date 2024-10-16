@@ -5,10 +5,8 @@ const axiosClient = axios.create({
   // baseURL: import.meta.env.VITE_LOCAL_URL,
 });
 
-// test
-
 interface getParams {
-  [key: string]: any;
+  [key: string]: string | number | undefined | null;
 }
 
 class ServerClient {
@@ -18,19 +16,16 @@ class ServerClient {
     this.endpoint = endpoint;
   }
 
-  get(params: getParams) {
-    console.log('API get with params:', params);
-    const config = {
-      headers: {},
-      params: params,
-    };
-    return axiosClient.get(this.endpoint, config).then((res) => res);
+  get() {
+    // console.log('API get with params:', params);
+    return axiosClient.get(this.endpoint).then((res) => res);
   }
 
   post(params: getParams) {
-    console.log('API post with params:', params);
+    // console.log('API post with params:', params);
     const config = {
       headers: {},
+      params: params,
     };
     return axiosClient.post(this.endpoint, params, config).then((res) => res);
   }
