@@ -25,7 +25,7 @@ const Tasks = () => {
   const fetchTaskData = async () => {
     try {
       const serverClient = new ServerClient('/api/retrieveTasks');
-      const res = await serverClient.post({ userId });
+      const res = await serverClient.post({ userId: userId });
       // console.log('res', res.data);
       setTaskData(res.data);
     } catch (error) {
