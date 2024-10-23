@@ -5,6 +5,9 @@
 This repository is the client side code integrated with <a href="https://github.com/eobcre/task-manager-server-AWS" target='_blank'
 rel='noopener noreferrer'>task-manager-server-AWS</a> repository.
 
+<a href="https://emanning-app.xyz" target='_blank'
+rel='noopener noreferrer'>Live Demo</a>
+
 - React
 - Vite
 - TypeScript
