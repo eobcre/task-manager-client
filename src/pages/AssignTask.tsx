@@ -16,6 +16,7 @@ interface AssignTaskProps {
   selectedTask: string;
   selectedDocumentType: string;
   description: string;
+  invalidInput: string;
   setSelectedAssignee: (assignee: Assignee | null) => void;
   setAssignTaskOpen: (state: boolean) => void;
   handleChangeTask: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -33,6 +34,7 @@ const AssignTask: React.FC<AssignTaskProps> = ({
   selectedTask,
   description,
   selectedDocumentType,
+  invalidInput,
   setSelectedAssignee,
   setAssignTaskOpen,
   handleChangeTask,
@@ -73,7 +75,10 @@ const AssignTask: React.FC<AssignTaskProps> = ({
           <h1 className='text-lg font-bold border-b border-gray-300 pb-1'>Task Assignment</h1>
           {/* task selection */}
           <div className='py-4'>
-            <h3 className='py-3'>Select the task type</h3>
+            <div className='flex justify-between items-center'>
+              <h3 className='py-3'>Select the task type</h3>
+              {invalidInput && <p className='text-red-600'>{invalidInput}</p>}
+            </div>
             <div className='flex gap-2 md:gap-6'>
               {assignTaskData.map((task, index) => (
                 <div key={task.id} className='flex items-center gap-2 text-[0.9rem] md:text-md'>
