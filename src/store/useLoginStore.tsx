@@ -22,7 +22,24 @@ const useStore = create<LoginStoreProps>()(
       userName: '',
       flag: false,
 
-      setUserLogin: (state) => set({ userLogin: state }),
+      setUserLogin: (state) => {
+        set({ userLogin: state });
+
+        if (state) {
+          setTimeout(() => {
+            set(() => ({
+              userLogin: false,
+              userId: null,
+              userName: '',
+              flag: false,
+            }));
+            localStorage.removeItem('auth-storage');
+            localStorage.removeItem('token');
+            // console.log('User has been logged out auto.');
+          }, 1800000); // 30 mins
+        }
+      },
+
       setUserId: (id) => set({ userId: id }),
       setUserName: (name) => set({ userName: name }),
       setFlag: (flag) => set({ flag: flag }),
