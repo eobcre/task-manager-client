@@ -20,6 +20,7 @@ const Tasks = () => {
   const [selectedDocumentType, setSelectedDocumentType] = useState('');
   const [selectedAssignee, setSelectedAssignee] = useState<Assignee | null>(null);
   const [description, setDescription] = useState('');
+  const [invalidInput, setInvalidInput] = useState('');
   const { userId, userName, flag } = useLoginStore();
 
   const fetchTaskData = async () => {
@@ -59,6 +60,10 @@ const Tasks = () => {
 
   // assign submission
   const onSubmit = async () => {
+    if(!selectedTask || !selectedDocumentType || !selectedAssignee || !description) {
+      setInvalidInput('All Fields Required')
+    }
+
     try {
       const serverClient = new ServerClient('/api/assignTasks');
       await serverClient.post({
@@ -66,7 +71,10 @@ const Tasks = () => {
         userName: userName ?? '',
         taskName: selectedTask,
         documentType: selectedDocumentType,
-        assignTo: selectedAssignee ? selectedAssignee.userId : '',
+        assignTo: {
+          userId: selectedAssignee ? selectedAssignee.userId : '',
+          username: selectedAssignee ? selectedAssignee.username : '',
+        },
         description,
         flag: flag ? 1 : 0,
       });
@@ -91,16 +99,19 @@ const Tasks = () => {
   const handleChangeTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log('handleChangeTask', e.target.value);
     setSelectedTask(e.target.value);
+    setInvalidInput('');
   };
   // document type radio
   const handleChangeDocumentType = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log('handleChangeDocumentType', e.target.value);
     setSelectedDocumentType(e.target.value);
+    setInvalidInput('');
   };
   // description
   const handleChangeDesc = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     // console.log('handleChangeDescription', e.target.value);
     setDescription(e.target.value);
+    setInvalidInput('');
   };
 
   return (
@@ -120,6 +131,7 @@ const Tasks = () => {
           selectedTask={selectedTask}
           description={description}
           selectedDocumentType={selectedDocumentType}
+          invalidInput={invalidInput}
           setSelectedAssignee={setSelectedAssignee}
           setAssignTaskOpen={setAssignTaskOpen}
           handleChangeTask={handleChangeTask}
