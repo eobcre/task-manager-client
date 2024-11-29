@@ -106,7 +106,6 @@ const AssignTask: React.FC<AssignTaskProps> = ({
             <Select
               id='assignee'
               placeholder='Select Assignee'
-              className=''
               options={assigneeOption}
               onChange={(selectedOption) => setSelectedAssignee(selectedOption ? { userId: selectedOption.value, username: selectedOption.label } : null)}
             />
