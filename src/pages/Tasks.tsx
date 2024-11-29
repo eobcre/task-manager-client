@@ -67,8 +67,8 @@ const Tasks = () => {
     try {
       const serverClient = new ServerClient('/api/assignTasks');
       await serverClient.post({
-        userId: userId ?? '',
-        userName: userName ?? '',
+        userId: userId,
+        userName: userName,
         taskName: selectedTask,
         documentType: selectedDocumentType,
         assignTo: {
@@ -76,7 +76,7 @@ const Tasks = () => {
           username: selectedAssignee ? selectedAssignee.username : '',
         },
         description,
-        flag: flag ? 1 : 0,
+        flag: true,
       });
       // console.log('res', res.data);
       if (activeTab === 'My Tasks') {
