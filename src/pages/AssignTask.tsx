@@ -6,11 +6,12 @@ import useLoginStore from '../store/useLoginStore';
 import { assignTaskData, assignDocumentTypeData } from '../data/assignTaskData';
 import Button from '../components/Button';
 
+// type
 interface Assignee {
   userId: number;
   username: string;
 }
-
+// props type
 interface AssignTaskProps {
   onSubmit: () => void;
   selectedTask: string;
