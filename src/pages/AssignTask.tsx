@@ -24,11 +24,6 @@ interface AssignTaskProps {
   handleChangeDesc: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-interface Member {
-  userId: number;
-  username: string;
-}
-
 const AssignTask: React.FC<AssignTaskProps> = ({
   onSubmit,
   selectedTask,
@@ -41,7 +36,7 @@ const AssignTask: React.FC<AssignTaskProps> = ({
   handleChangeDocumentType,
   handleChangeDesc,
 }) => {
-  const [members, setMembers] = useState<Member[]>([]);
+  const [members, setMembers] = useState<Assignee[]>([]);
   const { userName } = useLoginStore();
 
   useEffect(() => {
